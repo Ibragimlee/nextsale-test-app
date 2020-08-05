@@ -1,0 +1,19 @@
+@import "../../../../assets/scss/variables.scss";
+
+main.page_min_height {
+  min-height: 100vh;
+  background-color: $main_bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.white_squad {
+  display: grid;
+
+  min-height: 500px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 56px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px 0 rgba($color: $black, $alpha: 0.1);
+}

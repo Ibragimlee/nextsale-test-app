@@ -1,0 +1,179 @@
+@import "../../../../assets/scss/variables.scss";
+@import "../../../../assets/scss/mixins.scss";
+
+.custom_file_input {
+  display: flex;
+  flex-direction: column;
+  max-width: 416px;
+}
+
+.custom_file_input__header {
+  span {
+    display: block;
+    @include font(f-reg, 12, $text_medium, 24);
+  }
+}
+
+.custom_file_input__body {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid $solid_grey_400;
+  min-height: 96px;
+  min-width: 416px;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    border: 1px solid $solid_grey_600;
+  }
+}
+
+.upload_div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease-out;
+
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  label {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .initial {
+      pointer-events: none;
+      user-select: none;
+    }
+
+    span {
+      color: $text_info;
+    }
+  }
+}
+
+.loading_div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.loading_file_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.loading_file_name {
+  display: block;
+  width: calc(100% - 16px - 20px);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  @include font(f-reg, 14, $text_dark, 24);
+}
+
+.delete_file {
+  cursor: pointer;
+  margin-top: 4px;
+
+  .trash_fill {
+    fill: $solid_black_500;
+    transition: 0.3s ease-out;
+  }
+
+  &:hover {
+    .trash_fill {
+      fill: $solid_black_800;
+    }
+  }
+}
+
+.loading_file_middle {
+  width: 100%;
+
+  p {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    @include font(f-reg, 12, $text_disabled, 24);
+  }
+}
+
+.loading_file_bottom {
+  width: 100%;
+  margin-top: 8px;
+
+  .all_progress {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: $solid_grey_300;
+    position: relative;
+  }
+
+  .realtime_progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: $solid_brand_600;
+  }
+}
+
+.loaded_div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+}
+
+.image_details {
+  display: flex;
+  width: calc(100% - 16px - 20px);
+
+  .loaded_image {
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+  }
+
+  .image_resolution {
+    display: block;
+    margin-top: 8px;
+    @include font(f-reg, 12, $text_disabled, 24);
+  }
+
+  .loading_file_name {
+    width: 100%;
+    margin-top: 4px;
+  }
+}

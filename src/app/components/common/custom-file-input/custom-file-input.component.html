@@ -1,0 +1,86 @@
+<div class="custom_file_input">
+  <div class="custom_file_input__header">
+    <span>Background image</span>
+  </div>
+  <div class="custom_file_input__body">
+    <div class="upload_div" *ngIf="CheckFileLoading('initial')" appDragDrop>
+      <label for="file_input" *ngIf="CheckFileLoading('initial')">
+        <div class="initial">
+          <p>Drop your image or <span>browse files</span></p>
+        </div>
+      </label>
+      <input
+        type="file"
+        accept="image/jpg, image/jpeg, image/tiff, image/png, image/svg"
+        name="file_input"
+        id="file_input"
+        [(ngModel)]="file_input.value"
+        (change)="FileInputChange($event)"
+      />
+    </div>
+
+    <div class="loading_div" *ngIf="CheckFileLoading('loading')">
+      <div class="loading_file_top">
+        <p class="loading_file_name">{{ fileInputElement.name }}</p>
+        <div class="delete_file" (click)="deleteFile()">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="trash_fill"
+              d="M9.14581 12.5002H9.77081C9.92706 12.5002 10.0833 12.37 10.0833 12.1877V6.56266C10.0833 6.40641 9.92706 6.25016 9.77081 6.25016H9.14581C8.96352 6.25016 8.83331 6.40641 8.83331 6.56266V12.1877C8.83331 12.37 8.96352 12.5002 9.14581 12.5002ZM13.4166 3.75016H11.2552L10.3698 2.29183C10.1614 1.95329 9.69269 1.66683 9.30206 1.66683H6.67185C6.28123 1.66683 5.81248 1.95329 5.60415 2.29183L4.71873 3.75016H2.58331C2.34894 3.75016 2.16665 3.9585 2.16665 4.16683V4.5835C2.16665 4.81787 2.34894 5.00016 2.58331 5.00016H2.99998V13.7502C2.99998 14.4533 3.54685 15.0002 4.24998 15.0002H11.75C12.4271 15.0002 13 14.4533 13 13.7502V5.00016H13.4166C13.625 5.00016 13.8333 4.81787 13.8333 4.5835V4.16683C13.8333 3.9585 13.625 3.75016 13.4166 3.75016ZM6.61977 2.99495C6.64581 2.96891 6.72394 2.91683 6.74998 2.91683H6.77602H9.22394C9.24998 2.91683 9.3281 2.96891 9.35415 2.99495L9.79685 3.75016H6.17706L6.61977 2.99495ZM11.75 13.7502H4.24998V5.00016H11.75V13.7502ZM6.22915 12.5002H6.85415C7.0104 12.5002 7.16665 12.37 7.16665 12.1877V6.56266C7.16665 6.40641 7.0104 6.25016 6.85415 6.25016H6.22915C6.04685 6.25016 5.91665 6.40641 5.91665 6.56266V12.1877C5.91665 12.37 6.04685 12.5002 6.22915 12.5002Z"
+              fill=""
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="loading_file_middle">
+        <p>{{ volume_now }} of {{ all_volume }}</p>
+      </div>
+      <div class="loading_file_bottom">
+        <div class="all_progress">
+          <div
+            class="realtime_progress"
+            [ngStyle]="{ width: progress_percent }"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loaded_div" *ngIf="CheckFileLoading('loaded')">
+      <div class="image_details">
+        <div class="loaded_image">
+          <img
+            id="preview_loaded_image"
+            src="{{ preview_image }}"
+            alt="Loaded image"
+            (load)="onPreviewLoad($event)"
+          />
+        </div>
+        <div class="image_options">
+          <p class="loading_file_name">{{ fileInputElement.name }}</p>
+          <small class="image_resolution">{{ preview_image_dimensions }}</small>
+        </div>
+      </div>
+      <div class="delete_file" (click)="deleteFile()">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="trash_fill"
+            d="M9.14581 12.5002H9.77081C9.92706 12.5002 10.0833 12.37 10.0833 12.1877V6.56266C10.0833 6.40641 9.92706 6.25016 9.77081 6.25016H9.14581C8.96352 6.25016 8.83331 6.40641 8.83331 6.56266V12.1877C8.83331 12.37 8.96352 12.5002 9.14581 12.5002ZM13.4166 3.75016H11.2552L10.3698 2.29183C10.1614 1.95329 9.69269 1.66683 9.30206 1.66683H6.67185C6.28123 1.66683 5.81248 1.95329 5.60415 2.29183L4.71873 3.75016H2.58331C2.34894 3.75016 2.16665 3.9585 2.16665 4.16683V4.5835C2.16665 4.81787 2.34894 5.00016 2.58331 5.00016H2.99998V13.7502C2.99998 14.4533 3.54685 15.0002 4.24998 15.0002H11.75C12.4271 15.0002 13 14.4533 13 13.7502V5.00016H13.4166C13.625 5.00016 13.8333 4.81787 13.8333 4.5835V4.16683C13.8333 3.9585 13.625 3.75016 13.4166 3.75016ZM6.61977 2.99495C6.64581 2.96891 6.72394 2.91683 6.74998 2.91683H6.77602H9.22394C9.24998 2.91683 9.3281 2.96891 9.35415 2.99495L9.79685 3.75016H6.17706L6.61977 2.99495ZM11.75 13.7502H4.24998V5.00016H11.75V13.7502ZM6.22915 12.5002H6.85415C7.0104 12.5002 7.16665 12.37 7.16665 12.1877V6.56266C7.16665 6.40641 7.0104 6.25016 6.85415 6.25016H6.22915C6.04685 6.25016 5.91665 6.40641 5.91665 6.56266V12.1877C5.91665 12.37 6.04685 12.5002 6.22915 12.5002Z"
+            fill="#8B96A8"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

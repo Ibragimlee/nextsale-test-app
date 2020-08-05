@@ -1,0 +1,41 @@
+$white: #ffffff;
+$black: #000000;
+
+$text_medium: #5a6984;
+$text_dark: #061f4c;
+$text_info: #03b2ff;
+$text_disabled: #b9bfc9;
+
+$solid_brand_600: #1774ff;
+
+$solid_grey_100: #fafbfb;
+$solid_grey_200: #f7f8f9;
+$solid_grey_300: #f1f2f4;
+
+$solid_grey_400: #e1e4e8;
+$solid_grey_600: #b0b7c3;
+
+$solid_info_300: #a7e4ff;
+
+$solid_black_500: #8b96a8;
+$solid_black_800: #405373;
+$solid_black_900: #061f4c;
+
+$main_bg: #fafafa;
+
+$containerWidth: 1170px;
+$paddingMobile: 0 calc((100% - 91vw) / 2);
+$paddingDesk: 0 calc((50% - #{$containerWidth / 2}));
+$paddingMidDesk: 0 calc((50% - 45vw));
+$paddingTab: 0 calc((100% - 88vw) / 2);
+$paddingLargeDesk: 0 calc((50% - 20vw) / 2);
+
+$reverseMobile: calc((100% - 91vw) / 2);
+$reversePaddingDesk: calc(50% - #{$containerWidth / 2});
+$reverseMidDesk: calc((50% - 45vw));
+$reverseTab: calc((100% - 88vw) / 2);
+$reverseLargeDesk: calc((100% - 70vw) / 2);
+
+$leftDeskMargin: calc(50vw - #{$containerWidth});
+$leftMidDeskMargin: calc((-50vw + 45vw));
+$leftLargeDeskMargin: calc(50vw - 35vw);

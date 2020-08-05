@@ -1,1 +1,63 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/fonts.scss";
+@import "assets/scss/variables.scss";
+@import "assets/scss/mixins.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  letter-spacing: -0.03em;
+
+  &::selection {
+    // background-color: $main_background;
+    // color: $gold;
+  }
+}
+
+a,
+a:focus,
+a:active,
+button,
+button:active,
+button:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+input:focus,
+input:active {
+  outline: none;
+  -webkit-appearance: none;
+}
+
+html {
+  overflow-x: hidden;
+  position: relative;
+  background-color: $white;
+  width: 100vw;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background-color: $white;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: f-reg, sans-serif;
+  -webkit-overflow-scrolling: touch;
+}
