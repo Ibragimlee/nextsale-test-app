@@ -1,1 +1,20 @@
-<p>font-styler-container works!</p>
+<div class="font_styler_container">
+  <app-font-styler
+    (selectedStyles)="onSelectedStyles($event)"
+  ></app-font-styler>
+
+  <p
+    class="added_styles_paragraph"
+    [ngStyle]="{
+      fontFamily: received_styles.fontName,
+      fontWeight: received_styles.fontWeight,
+      fontSize: received_styles.fontSize,
+      fontStyle: received_styles.fontStyle,
+      color: received_styles.color,
+      textAlign: received_styles.textAlign
+    }"
+  >
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, quidem!
+  </p>
+  <!-- <p>Here is real time changed styles</p> -->
+</div>

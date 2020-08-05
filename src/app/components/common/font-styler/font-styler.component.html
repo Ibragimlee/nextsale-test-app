@@ -1,0 +1,67 @@
+<div class="font_styler" [ngClass]="toggler ? 'open' : ''">
+  <div class="font_styler_heading">
+    <span>Message</span>
+  </div>
+  <div class="font_styler_toggler">
+    <p>Get discounts first:</p>
+    <div class="toggle_options_btn" (click)="toggleFontStyler($event)">
+      <img src="../../../../assets/icons/font_icon.svg" alt="" />
+      <div class="font_icon_bottom"></div>
+    </div>
+  </div>
+  <div class="font_styler_options">
+    <div class="font_styler_options_top">
+      <app-custom-select
+        [items]="font_items"
+        [heading]="'Font'"
+        [select_name]="'fontName'"
+        [placeholder]="'Inter'"
+        (optionSelected)="onOptionSelected($event)"
+      >
+      </app-custom-select>
+      <app-custom-select
+        [items]="font_sizes"
+        [placeholder]="32"
+        [select_name]="'fontSize'"
+        [heading]="'Size'"
+        (optionSelected)="onOptionSelected($event)"
+      >
+      </app-custom-select>
+      <div class="gray_pipe">
+        <span></span>
+      </div>
+      <app-iconed-button
+        *ngFor="let item of iconed_buttons"
+        [icon]="item.icon"
+        [function]="item.function"
+        (buttonClicked)="onIconedBtnClicked($event)"
+      ></app-iconed-button>
+    </div>
+    <div class="font_styler_options_bottom">
+      <div class="colors_container">
+        <div class="colors_container_heading">
+          <span>Colors</span>
+        </div>
+        <div class="colors_grid">
+          <app-color-checkbox
+            *ngFor="let item of colored_checkboxes"
+            [checked]="item.checked"
+            [id]="item.id"
+            [hex]="item.hex"
+            [rgba]="item.rgba"
+            (colorChecked)="onColorChecked($event)"
+          >
+          </app-color-checkbox>
+        </div>
+      </div>
+      <div class="hex_grid">
+        <app-disbled-div
+          *ngFor="let item of disabled_divs"
+          [title]="item.title"
+          [value]="item.value"
+        >
+        </app-disbled-div>
+      </div>
+    </div>
+  </div>
+</div>

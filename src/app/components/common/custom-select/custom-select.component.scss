@@ -1,0 +1,107 @@
+@import "../../../../assets/scss/variables.scss";
+@import "../../../../assets/scss/mixins.scss";
+
+.custom_select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.custom_select_label {
+  span {
+    display: block;
+    @include font(f-reg, 12, $text_medium, 24);
+  }
+}
+
+.custom_select_btn {
+  width: 100%;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  border: 1px solid $solid_grey_400;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  height: 40px;
+
+  p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: calc(100% - 16px - 12px);
+    @include font(f-reg, 14, $text_dark, 24);
+  }
+
+  img {
+    display: block;
+    width: 16px;
+    height: 16px;
+    transition: 0.3s ease-out;
+  }
+
+  &:hover {
+    border: 1px solid $solid_grey_600;
+  }
+}
+
+.custom_select_options {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $solid_grey_600;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  max-height: 165px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: 0.3s ease-out;
+}
+
+.custom_option {
+  padding: 8px 11px;
+  background-color: $white;
+  @include font(f-reg, 14, $text_dark, 24);
+  transition: 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $solid_grey_200;
+  }
+
+  &:not(:nth-last-child(1)) {
+    border-bottom: 1px solid $solid_grey_600;
+  }
+}
+
+.custom_option.selected {
+  background-color: $solid_grey_200;
+}
+
+.custom_select.open {
+  .custom_select_btn {
+    border: 1px solid $solid_grey_600;
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  .custom_select_options {
+    visibility: visible;
+    z-index: 9999;
+    opacity: 1;
+  }
+}

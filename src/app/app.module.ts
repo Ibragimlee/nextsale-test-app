@@ -14,6 +14,12 @@ import { FileLoaderContainerComponent } from './components/blocks/file-loader-co
 import { FontStylerContainerComponent } from './components/blocks/font-styler-container/font-styler-container.component';
 import { CustomFileInputComponent } from './components/common/custom-file-input/custom-file-input.component';
 
+import { FontStylerComponent } from './components/common/font-styler/font-styler.component';
+import { CustomSelectComponent } from './components/common/custom-select/custom-select.component';
+import { ColorCheckboxComponent } from './components/common/color-checkbox/color-checkbox.component';
+import { IconedButtonComponent } from './components/common/iconed-button/iconed-button.component';
+import { DisbledDivComponent } from './components/common/disbled-div/disbled-div.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +28,11 @@ import { CustomFileInputComponent } from './components/common/custom-file-input/
     FontStylerContainerComponent,
     CustomFileInputComponent,
     DragDropDirective,
+    FontStylerComponent,
+    CustomSelectComponent,
+    ColorCheckboxComponent,
+    IconedButtonComponent,
+    DisbledDivComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

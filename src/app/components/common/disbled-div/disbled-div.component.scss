@@ -1,0 +1,28 @@
+@import "../../../../assets/scss/mixins.scss";
+@import "../../../../assets/scss/variables.scss";
+
+.disabled_div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.disabled_div_head {
+  span {
+    display: block;
+    width: 100%;
+    @include font(f-reg, 12, $text_medium, 24);
+  }
+}
+
+.disabled_div_value {
+  border: 1px solid $solid_grey_400;
+  background-color: $solid_grey_100;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 4px;
+  padding: 8px 12px;
+  @include font(f-reg, 14, $text_dark, 24);
+  transition: 0.3s ease-out;
+}

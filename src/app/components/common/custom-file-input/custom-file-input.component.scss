@@ -18,13 +18,9 @@
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid $solid_grey_400;
-  min-height: 96px;
-  min-width: 416px;
+  height: 96px;
+  width: 416px;
   transition: 0.3s ease-out;
-
-  &:hover {
-    border: 1px solid $solid_grey_600;
-  }
 }
 
 .upload_div {
@@ -72,7 +68,7 @@
 
 .loading_file_top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
 }
@@ -90,6 +86,11 @@
 .delete_file {
   cursor: pointer;
   margin-top: 4px;
+  height: 16px;
+
+  svg {
+    display: block;
+  }
 
   .trash_fill {
     fill: $solid_black_500;

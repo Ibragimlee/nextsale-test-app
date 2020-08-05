@@ -2,8 +2,8 @@
   <div class="custom_file_input__header">
     <span>Background image</span>
   </div>
-  <div class="custom_file_input__body">
-    <div class="upload_div" *ngIf="CheckFileLoading('initial')" appDragDrop>
+  <div class="custom_file_input__body" appDragDrop>
+    <div class="upload_div" *ngIf="CheckFileLoading('initial')">
       <label for="file_input" *ngIf="CheckFileLoading('initial')">
         <div class="initial">
           <p>Drop your image or <span>browse files</span></p>

@@ -1,0 +1,27 @@
+<label
+  for="color_checkbox"
+  [style.background-color]="hex"
+  [ngClass]="checked ? 'checked' : ''"
+>
+  <div class="checkbox_icon">
+    <img
+      class="chechmark_img"
+      *ngIf="hex != ''"
+      src="../../../../assets/icons/checkmark.svg"
+      alt=""
+    />
+    <img
+      *ngIf="hex == ''"
+      class="diagonal_line"
+      src="../../../../assets/icons/diagonal_line.svg"
+    />
+  </div>
+  <input
+    type="radio"
+    name="color_checkbox"
+    value="{{ hex }}"
+    [attr.data-rgba]="rgba"
+    [attr.data-id]="id"
+    (change)="onColorChange($event)"
+  />
+</label>

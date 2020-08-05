@@ -1,0 +1,30 @@
+<div
+  class="custom_select"
+  *ngIf="items"
+  [ngClass]="select_state.open_status ? 'open' : ''"
+  (mouseleave)="hideCustomSelect($event)"
+>
+  <div class="custom_select_label">
+    <span>{{ heading }}</span>
+  </div>
+
+  <div class="custom_select_btn" (click)="toggleCustomSelect($event)">
+    <p class="selected">{{ select_state.selected_value }}</p>
+    <img
+      src="../../../../assets/icons/custom_select_chevron.svg"
+      alt="Chevron"
+    />
+  </div>
+  <div class="custom_select_options" (mouseleave)="hideCustomSelect($event)">
+    <div
+      class="custom_option"
+      *ngFor="let item of items"
+      [attr.data-value]="item.value"
+      [attr.data-select-name]="select_name"
+      (click)="clickCustomOption($event)"
+      [ngClass]="select_state.selected_value == item.value ? 'selected' : ''"
+    >
+      {{ item.name }}
+    </div>
+  </div>
+</div>

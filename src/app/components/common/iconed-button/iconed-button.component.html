@@ -1,0 +1,8 @@
+<div
+  class="iconed_btn"
+  [attr.data-function]="function"
+  (click)="clickIconedBtn($event)"
+  [ngClass]="btn_state.value ? 'clicked' : ''"
+>
+  <img src="{{ icon }}" alt="" />
+</div>
